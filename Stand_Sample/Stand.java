@@ -3,9 +3,6 @@ package Stand;
 
 /**
  * Classe que representa um Stand de automóveis
- * 
- * @author anr
- * @version 2014.03.16  
  */
 public class Stand {
   //variáveis de instância
