@@ -20,6 +20,12 @@ Multi-line comments look like this.
 
 // Import ArrayList class inside of the java.util package
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.*;
 // Import all classes inside of java.security package
 import java.security.*;
 
@@ -520,7 +526,7 @@ public class LearnJava {
         // Another option was to initialize the Collection from an array,
         // using Arrays.asList() method:
         private static final List<String> COUNTRIES_AS_LIST = 
-                        Arrays.asList("SWEDEN", "DENMARK", "NORWAY");
+                        (List<String>) Arrays.asList("SWEDEN", "DENMARK", "NORWAY");
         // This has one catch: the list we get is internally backed by the array,
         // and since arrays can't change their size, the list backed by the array
         // is not resizeable, which means we can't add new elements to it: 
@@ -891,7 +897,11 @@ public class EnumTest {
 // above.
 //
 import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.function.*;
 import java.security.SecureRandom;
 
