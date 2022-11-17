@@ -117,7 +117,7 @@ public class FBFeed {
     }
 
     public List<Integer> top5Comments() {
-        return topNCormentsInternal(5);
+        return topNCommentsInternal(5);
         // return top5NCommentsExternal(5);
     }
 

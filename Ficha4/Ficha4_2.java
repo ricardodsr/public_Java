@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Ficha4_2 {
     public static void main (String[] args) {

@@ -38,7 +38,6 @@ public class TurmaAlunos {
 
     public void removeAluno(String codAluno) {
         Iterator<Aluno> it = this.alunos.iterator();
-        Aluno tmp;
         while (it.hasNext()) {
             if (it.next().getCodigo().equals(codAluno))
                 it.remove();

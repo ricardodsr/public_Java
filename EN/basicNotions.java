@@ -19,8 +19,7 @@ Multi-line comments look like this.
 */
 
 // Import ArrayList class inside of the java.util package
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.math.BigDecimal;
@@ -162,6 +161,7 @@ public class LearnJava {
         final double E;
         E = 2.71828;
 
+        byte[] fooByteArray;
         // BigInteger - Immutable arbitrary-precision integers
         //
         // BigInteger is a data type that allows programmers to manipulate

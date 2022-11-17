@@ -68,7 +68,7 @@ public class DriveIt {
 
     public double custoRealKm(String cod) {
         double custoReal = this.veiculos.stream().filter(v -> v.getCodigo().equals(cod))
-                                                 .mapToDouble(v -> v.getPrecoKilometro())
+                                                 .mapToDouble(v -> v.getPreco_kilometro())
                                                  .sum();
         custoReal *= 1.1;
         return custoReal;

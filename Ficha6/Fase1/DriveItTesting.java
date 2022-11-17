@@ -47,7 +47,7 @@ public class DriveItTesting {
         System.out.printf("%s\n", test.toString());
 
         // Teste custoRealKm
-        System.out.printf("(Expected: 0.20) Custo por km do veiculo 29746: %.2f\n", v6.getPrecoKilometro());
+        System.out.printf("(Expected: 0.20) Custo por km do veiculo 29746: %.2f\n", v6.getPreco_kilometro());
         System.out.printf("Custo por km do veiculo 29746 ajustado: %.2f\n", test.custoRealKm(v6.getCodigo()));
     }
 }

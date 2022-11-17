@@ -49,7 +49,7 @@ public class FBPost {
     
     // Construtor cópia (comentarios incompleto)
     public FBPost(FBPost outro) {
-        this.id = outro.lastID;
+        this.id = FBPost.lastID;
         this.username = outro.username;
         this.creation_date = outro.getCreation_date();
         this.conteudo = outro.getConteudo();

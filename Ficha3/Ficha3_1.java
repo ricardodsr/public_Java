@@ -1,4 +1,4 @@
-import java.util.*;
+
 
 public class Ficha3_1 {
     public static void main (String[] args) {
