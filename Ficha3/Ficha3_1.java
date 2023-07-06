@@ -1,6 +1,12 @@
 
 
 public class Ficha3_1 {
+    /**
+     * The main function is the entry point of the Java program.
+     *
+     * @param  args    an array of Strings representing command line arguments
+     * @return         void
+     */
     public static void main (String[] args) {
         Circulo cir2 = new Circulo(2, 3, 5);
         

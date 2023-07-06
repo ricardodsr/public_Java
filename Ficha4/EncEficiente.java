@@ -154,10 +154,20 @@ public class EncEficiente {
         return encomendas;
     }
 
+    /**
+     * Adds a new LinhaEncomenda to the encomendas list.
+     *
+     * @param  enc  the LinhaEncomenda to be added
+     */
     public void addLinhaEncomenda(LinhaEncomenda enc) {
         this.encomendas.add(enc);
     }
 
+    /**
+     * Calculates the total value of the order.
+     *
+     * @return the total value of the order
+     */
     public double calculaValorTotal(){
         double precoTotal = 0;
         Iterator<LinhaEncomenda> ite = this.encomendas.iterator();
@@ -167,6 +177,11 @@ public class EncEficiente {
         return precoTotal;
     }
 
+    /**
+     * Calculates the total discount for the given function.
+     *
+     * @return the total discount value
+     */
     public double calculaDescontoTotal() {
         double descontoTotal = 0;
         Iterator<LinhaEncomenda> ite = this.encomendas.iterator();
@@ -176,6 +191,11 @@ public class EncEficiente {
         return descontoTotal;
     }
 
+    /**
+     * Calculates the total number of products in the given collection of orders.
+     *
+     * @return         	the total number of products
+     */
     public int numeroTotalProdutos() {
         int totalProdutos = 0;
         Iterator<LinhaEncomenda> ite = this.encomendas.iterator();
@@ -185,6 +205,12 @@ public class EncEficiente {
         return totalProdutos;
     }
 
+    /**
+     * Checks if a given product exists in the order.
+     *
+     * @param  linha  the product to be checked
+     * @return        true if the product exists, false otherwise
+     */
     public boolean existeProdutoEncomenda(LinhaEncomenda linha) {
         boolean existence = false;
         Iterator<LinhaEncomenda> ite = this.encomendas.iterator();
@@ -196,10 +222,20 @@ public class EncEficiente {
         return existence;
     }
 
+    /**
+     * Adds a line to the list of orders.
+     *
+     * @param  linha  the line to be added
+     */
     public void adicionaLinha(LinhaEncomenda linha) {
         this.encomendas.add(linha);
     }
 
+    /**
+     * Removes a product from the list of orders.
+     *
+     * @param  codProd  the code of the product to be removed
+     */
     public void removeProduto(String codProd) {
         boolean wasRemoved = false;
         Iterator<LinhaEncomenda> ite = this.encomendas.iterator();
