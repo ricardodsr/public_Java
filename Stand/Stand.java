@@ -169,34 +169,37 @@ public static int getCapacidadeInicial() {
     }
     	
     
-    /**
-     * equals
-     * 
-     */
-    public boolean equals(Object o) {
-    	if (this == o) return true;
-    	if ((o==null)||(this.getClass() != o.getClass()))
-    		return false;
-    	else{ Stand s = (Stand)o;
-    			return (this.nomeStand.equals(s.getNomeStand()));
-    		}
-    }
+/**
+ * equals
+ */
+public boolean equals(Object o) {
+	if (this == o) {
+		return true;
+	}
+
+	if (o == null || getClass() != o.getClass()) {
+		return false;
+	}
+
+	Stand s = (Stand) o;
+	return this.nomeStand.equals(s.getNomeStand());
+}
     
-    /**
-     * toString
-     */
-    public String toString() {
-    	StringBuilder s = new StringBuilder();
-    	s.append(this.nomeStand + ";\n");
-    	s.append(this.nveiculos + ";\n");
-    	s.append(this.capacidade + ";\n");
-    	for (int i = 0; i < (this.nveiculos); i++) {
-			
-    		s.append(this.carros[i].toString() + ";\n");
-		}
-    	
-    	return s.toString();
-    }
+/**
+ * Returns a string representation of the object.
+ *
+ * @return          a string representation of the object
+ */
+public String toString() {
+	StringBuilder s = new StringBuilder();
+	s.append(this.nomeStand).append(";\n");
+	s.append(this.nveiculos).append(";\n");
+	s.append(this.capacidade).append(";\n");
+	for (int i = 0; i < this.nveiculos; i++) {
+		s.append(this.carros[i].toString()).append(";\n");
+	}
+	return s.toString();
+}
     
     /**
      * clone

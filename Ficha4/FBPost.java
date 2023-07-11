@@ -65,17 +65,23 @@ public class FBPost {
         this.comentarios.add(comentario);
     }
 
-    // TODO: complete this
-    public String toString() {
-        String output = "User name: " + this.username + "\n"
-                      + "Data do post: " + this.creation_date.toString() + "\n"
-                      + "Conteudo: " + this.conteudo + "\n"
-                      + "Likes: " + this.likes + "\n"
-                      + "Comentários:\n"
-                      + this.comentarios.toString();
-        return output;
-    }
+public String toString() {
+    StringBuilder output = new StringBuilder();
+    output.append("User name: ").append(this.username).append("\n")
+          .append("Data do post: ").append(this.creation_date.toString()).append("\n")
+          .append("Conteudo: ").append(this.conteudo).append("\n")
+          .append("Likes: ").append(this.likes).append("\n")
+          .append("Comentários:\n")
+          .append(this.comentarios.toString());
+    return output.toString();
+}
 
+    /**
+     * Determines whether this object is equal to another object.
+     *
+     * @param  o the object to compare to
+     * @return   true if the objects are equal, false otherwise
+     */
     public boolean equals(Object o) {
         if (this == o) {
             return true;

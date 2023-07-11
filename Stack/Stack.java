@@ -50,14 +50,14 @@ public class Stack {
 		this.stack.add(s);
 	}
 	
-	//void pop(): remove o elemento do topo da stack, se esta não estiver vazia;
+	//void pop(): remove o elemento do topo da stack, se esta nï¿½o estiver vazia;
 	
 	public void pop(){
 		int aux = this.stack.size();
 		if(this.stack!=null) this.stack.remove(aux-1);
 	}
 	
-	//boolean empty(): determina se a stack está vazia;
+	//boolean empty(): determina se a stack estï¿½ vazia;
 	
 	public boolean empty(){
 		boolean resultado = false;

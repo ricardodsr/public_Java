@@ -33,7 +33,7 @@ public class LinhaEncomenda {
         this.discount = outra.getDiscount();
     }
 
-    // Metodooos
+    // Metodos
     public double calculaValorLinhaEnc() {
         double valor;
         valor = this.quantidade * this.preco;  // Valor sem impostos
@@ -42,6 +42,11 @@ public class LinhaEncomenda {
         return valor;
     }
 
+    /**
+     * Calculates the discounted value.
+     *
+     * @return the calculated discounted value
+     */
     public double calculaValorDesconto() {
         double valor;
         valor = this.quantidade * this.preco; // Valor sem impostos

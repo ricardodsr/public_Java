@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
 public class Ficha2_1b {
+    /**
+     * The main function that runs the program.
+     *
+     * @param  args  the command-line arguments
+     * @return       void
+     */
     public static void main (String[] args) {
         // Utilities needed
         ArrayUtils au = new ArrayUtils();

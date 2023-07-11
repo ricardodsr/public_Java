@@ -12,6 +12,11 @@ public class FBFeed {
         this.timeline = new ArrayList<>();
     }
 
+    /**
+     * Adds a FBPost to the timeline.
+     *
+     * @param  post  the FBPost to be added
+     */
     public void addFBPost(FBPost post) {
         this.timeline.add(post); // post.clone() ???
     }
@@ -25,6 +30,14 @@ public class FBFeed {
         return (ArrayList<FBPost>) feedUser; // Casting necessário ???
     }
     
+    /**
+     * Retrieves a list of FBPosts for a given user between two specified dates.
+     *
+     * @param  user     the username of the user
+     * @param  inicio   the start date
+     * @param  fim      the end date
+     * @return          a list of FBPosts for the specified user and date range
+     */
     public List<FBPost> postsOf(String user, LocalDateTime inicio, LocalDateTime fim){
         List<FBPost> feedUser =
             this.timeline.stream()
@@ -45,16 +58,12 @@ public class FBFeed {
         return contador;
     }
 
-    // Dúvida: Existe alguma maneira de tendo uma stream de 1 elemento retornar
-    // diretamente o primeiro elemento sem passar primeiro para lista?
-    public FBPost getPost(int idPost) {
-        FBPost output;
-        output = this.timeline.stream()
-                              .filter(post -> post.getId() == idPost)
-                              .collect(Collectors.toList())
-                              .get(0);
-        return output;
-    }
+public FBPost getPost(int idPost) {
+    return this.timeline.stream()
+                        .filter(post -> post.getId() == idPost)
+                        .findFirst()
+                        .orElse(null);
+}
 
     public void comment(FBPost post, String comentario) {
         post.addComentario(comentario);
@@ -75,46 +84,41 @@ public class FBFeed {
 
         output = this.timeline.stream() // Transform timeline into a stream
                               .sorted((s1, s2) -> cmp.compare(s1, s2))
-                                                // Sort por ordem decresencente
+                              // Sort por ordem decresencente
                               // .limit(N) // Get the first N elements
                               .map(post -> post.getId()) // Map from post to its ID
                               .collect(Collectors.toList()); // Convert it to a list
         return output;
     }
 
-    // TODO: Fix this
-    // Peço perdão a quem tenha de ler esta aberração de código, foi feito demasiado à pressa e nem sequer funciona
-    public List<Integer> topNCommentsExternal(int N) {
-        int sizeClone = this.timeline.size();
-        ArrayList<FBPost> clone = new ArrayList<>(sizeClone);
-        for (int i = 0; i < sizeClone; i++) {
-            clone.add(this.timeline.get(i).clone());
-        }
-
-        List<Integer> output = new ArrayList<>(N);
-
-        Iterator<FBPost> it = clone.iterator();
-        FBPost current;
+/**
+ * Returns the top N comments from the timeline.
+ *
+ * @param  N  the number of top comments to retrieve
+ * @return    a list of the N most commented post IDs
+ */
+public List<Integer> topNCommentsExternal(int N) {
+    List<FBPost> clone = new ArrayList<>(this.timeline);
+    List<Integer> output = new ArrayList<>(N);
+    
+    for (int i = 0; i < N; i++) {
+        FBPost maxPost = null;
         int maxSize = -1;
-        int maxId = -1;
-        for (int i = 0; i < N; i++) {
-            while (it.hasNext()) {
-                current = it.next();
-                if (current.getComentarios().size() > maxSize) {
-                    maxSize = current.getComentarios().size(); 
-                    maxId = current.getId();
-                }
+        
+        for (FBPost post : clone) {
+            int postSize = post.getComentarios().size();
+            if (postSize > maxSize) {
+                maxSize = postSize;
+                maxPost = post;
             }
-            it = clone.iterator();
-            while (maxId != it.next().getId());
-            it.remove();
-            it = clone.iterator();
-            output.add(maxId);
-            maxSize = -1;
-            maxId = -1;
         }
-        return output;
+        
+        clone.remove(maxPost);
+        output.add(maxPost.getId());
     }
+    
+    return output;
+}
 
     public List<Integer> top5Comments() {
         return topNCommentsInternal(5);
