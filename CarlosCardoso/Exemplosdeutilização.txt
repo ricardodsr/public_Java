@@ -1,0 +1,62 @@
+
+
+ListaAlunos listaAlunos = new ListaAlunos();
+
+Aluno aluno1 = new Aluno(1, "João", "1234567890", "Engenharia", 1);
+Aluno aluno2 = new Aluno(2, "Maria", "9876543210", "Direito", 2);
+
+listaAlunos.adicionar(aluno1);
+listaAlunos.adicionar(aluno2);
+
+System.out.println(listaAlunos.getAlunos());
+
+// Output:
+// [Aluno{id=1, nome=João, matricula=1234567890, curso=Engenharia, ano=1}, Aluno{id=2, nome=Maria, matricula=9876543210, curso=Direito, ano=2}]
+
+
+
+ORDERNA Alunos 
+ListaAlunos listaAlunos = new ListaAlunos();
+
+Aluno aluno1 = new Aluno(1, "João", "1234567890", "Engenharia", 1);
+Aluno aluno2 = new Aluno(2, "Maria", "9876543210", "Direito", 2);
+
+listaAlunos.adicionar(aluno1);
+listaAlunos.adicionar(aluno2);
+
+// Ordena a lista por nome
+listaAlunos.ordenar(Comparator.comparing(Aluno::getNome));
+
+// Saída:
+// [Aluno{id=2, nome=Maria, matricula=9876543210, curso=Direito, ano=2}, Aluno{id=1, nome=João, matricula=1234567890, curso=Engenharia, ano=1}]
+
+
+Filtar Alunos
+
+ListaAlunos listaAlunos = new ListaAlunos();
+
+Aluno aluno1 = new Aluno(1, "João", "1234567890", "Engenharia", 1);
+Aluno aluno2 = new Aluno(2, "Maria", "9876543210", "Direito", 2);
+
+listaAlunos.adicionar(aluno1);
+listaAlunos.adicionar(aluno2);
+
+// Filtra a lista por ano
+List<Aluno> alunosDoSegundoAno = listaAlunos.filtrar(aluno -> aluno.getAno() == 2);
+
+// Saída:
+// [Aluno{id=2, nome=Maria, matricula=9876543210, curso=Direito, ano=2}]
+
+
+Exportar alunos em BIN
+
+ListaAlunos listaAlunos = new ListaAlunos();
+
+Aluno aluno1 = new Aluno(1, "João", "1234567890", "Engenharia", 1);
+Aluno aluno2 = new Aluno(2, "Maria", "9876543210", "Direito", 2);
+
+listaAlunos.adicionar(aluno1);
+listaAlunos.adicionar(aluno2);
+
+// Exporta a lista para um arquivo
+listaAlunos.exportar("lista-alunos.dat");
